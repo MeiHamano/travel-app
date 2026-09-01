@@ -9,6 +9,7 @@ export default function App() {
 
     const remainingCount = todos.filter((todo) => !todo.completed).length;
 
+    //追加ボタンが押された時の処理
     const handleAdd = () => {
         if (!text.trim()) return;
         const newTodo = {
@@ -20,6 +21,7 @@ export default function App() {
         setText('');
     };
 
+    //チェックボックスをクリックされたしたとき
     const handleToggle = (id) => {
         setTodos(
             todos.map((todo) =>
@@ -28,21 +30,22 @@ export default function App() {
         );
     };
 
+    //タスクを消したとき
     const handleDelete = (id) => {
         setTodos(todos.filter((todo) => todo.id !== id));
     };
 
     return (
         <Container maxWidth="xs" sx={{ mt: 3 }}>
-            <Typography variant="h5" sx={{ mb: 2 }}>TODOリスト</Typography>
-            
-            {/* onAddd -> onAdd に修正 */}
+            <Typography variant="h5" sx={{ mb: 2 }}>-TODOリスト-</Typography>
+
             <TodoInput text={text} setText={setText} onAdd={handleAdd} />
 
             <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
                 残りタスク: {remainingCount} 件
             </Typography>
 
+            {/* 配列内の要素が1つずつ todo という変数名で取り出される*/}
             <List disablePadding>
                 {todos.map((todo) => (
                     <TodoItem

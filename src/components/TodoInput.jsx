@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Box, TextField, Button } from '@mui/material';
 
@@ -20,7 +19,11 @@ export default function TodoInput({ text, setText, onAdd }) {
                 onChange={(e) => setText(e.target.value)}
                 onKeyDown={handleKeyDown}
             />
-            <Button variant="contained" onClick={onAdd}>
+            <Button 
+                variant="contained" 
+                onClick={onAdd}
+                sx={{ whiteSpace: 'nowrap', flexShrink: 0 }}
+                >
                 追加
             </Button>
         </Box>
